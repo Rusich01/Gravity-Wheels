@@ -2,7 +2,7 @@ import HeaderIcons from "./header-icons";
 import HeaderList from "./header-list";
 
 const HeaderRoot = () => {
-  const bgUrl = "/img/background/background-main-pages.png";
+  const bgUrl = "src/assets/img/background/background-main-pages.png";
 
   return (
     <div

@@ -7,7 +7,7 @@ interface ModalProps {
   isOpen: boolean;
 }
 
-const ModalView = ({ children, isOpen, closeView }: ModalProps) => {
+const ModalViewRoot = ({ children, isOpen, closeView }: ModalProps) => {
   const handleEsc = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
       closeView();
@@ -48,4 +48,4 @@ const ModalView = ({ children, isOpen, closeView }: ModalProps) => {
   );
 };
 
-export default ModalView;
+export default ModalViewRoot;
