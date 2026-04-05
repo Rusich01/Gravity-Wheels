@@ -9,12 +9,25 @@ export interface bikesType {
 }
 
 interface bikeStore {
-  bikes: Partial<bikesType>[];
-
+  bikes: bikesType[];
+  cart: bikesType[];
   isLoading: boolean;
+
+  // function
+  addToCart: (id: string) => void;
 }
 
 export const useBikeStore = create<bikeStore>((set) => ({
   bikes: InitialState,
+  cart: [],
   isLoading: false,
+
+  addToCart: (id) =>
+    set((state) => {
+      const bike = state.bikes.find((cr) => cr.id === id);
+
+      if (!bike) return state;
+
+      return { cart: [...state.cart, bike] };
+    }),
 }));

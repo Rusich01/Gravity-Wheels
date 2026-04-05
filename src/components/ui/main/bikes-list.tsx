@@ -1,8 +1,8 @@
-import { useBikeStore } from "../../../store/use-bike-tore";
+import { useBikeStore } from "../../../store/use-bike-store";
 import TitleH2 from "../../blocks/title-h2";
 
-const MainList = () => {
-  const { bikes } = useBikeStore();
+const BikesList = () => {
+  const { bikes, addToCart } = useBikeStore();
 
   return (
     <div>
@@ -31,7 +31,10 @@ const MainList = () => {
 
               <p>{price} $</p>
 
-              <button className="mt-auto w-full bg-green-600 p-2 text-sm text-white rounded-lg hover:bg-green-500 active:scale-95 transition cursor-pointer">
+              <button
+                className="mt-auto w-full bg-green-600 p-2 text-sm text-white rounded-lg hover:bg-green-500 active:scale-95 transition cursor-pointer"
+                onClick={() => addToCart(id)}
+              >
                 add in cart
               </button>
             </li>
@@ -42,4 +45,4 @@ const MainList = () => {
   );
 };
 
-export default MainList;
+export default BikesList;

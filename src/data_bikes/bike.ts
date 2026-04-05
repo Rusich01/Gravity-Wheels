@@ -1,6 +1,6 @@
-import type { bikesType } from "../store/use-bike-tore";
+import type { bikesType } from "../store/use-bike-store";
 
-export const InitialState: Partial<bikesType>[] = [
+export const InitialState: bikesType[] = [
   {
     img: "src/assets/img/bikes/bicycle01.png",
     title: "MTB",

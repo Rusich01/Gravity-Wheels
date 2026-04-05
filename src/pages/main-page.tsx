@@ -20,7 +20,7 @@ const MainPage = () => {
       </ModalViewRoot>
 
       <ModalViewRoot isOpen={isOpenCart} closeView={closeCart}>
-        <ViewCart />
+        <ViewCart closeView={closeCart} />
       </ModalViewRoot>
     </div>
   );
