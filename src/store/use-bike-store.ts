@@ -6,6 +6,7 @@ export interface bikesType {
   title: string;
   price: number;
   id: string;
+  quantity: number;
 }
 
 interface bikeStore {
@@ -15,6 +16,9 @@ interface bikeStore {
 
   // function
   addToCart: (id: string) => void;
+  removeCart: (id: string) => void;
+  increment: (id: string) => void;
+  decrement: (id: string) => void;
 }
 
 export const useBikeStore = create<bikeStore>((set) => ({
@@ -24,10 +28,49 @@ export const useBikeStore = create<bikeStore>((set) => ({
 
   addToCart: (id) =>
     set((state) => {
-      const bike = state.bikes.find((cr) => cr.id === id);
+      const bike = state.bikes.find((item) => item.id === id);
 
-      if (!bike) return state;
+      const includeBike = state.cart.find((item) => item.id === id);
+
+      if (!bike || includeBike) return state;
 
       return { cart: [...state.cart, bike] };
     }),
+
+  //
+
+  removeCart: (id) =>
+    set((state) => {
+      const newCart = state.cart.filter((item) => item.id !== id);
+
+      return { cart: newCart };
+    }),
+
+  //
+
+  increment: (id) =>
+    set((state) => ({
+      cart: state.cart.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+      ),
+    })),
+
+  //
+
+  decrement: (id) =>
+    set((state) => {
+      const existing = state.cart.find((item) => item.id === id);
+      if (!existing) return state;
+
+      if (existing.quantity === 1)
+        return { cart: state.cart.filter((it) => it.id !== id) };
+
+      return {
+        cart: state.cart.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
+        ),
+      };
+    }),
+
+  //
 }));
