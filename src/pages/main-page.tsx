@@ -2,9 +2,9 @@ import ModalViewRoot from "../components/ui/modal-views/modal-view-root";
 import HeaderRoot from "../components/ui/header/header-root";
 import MainRoot from "../components/ui/main/main-root";
 import ViewCart from "../components/ui/modal-views/view-cart";
-import ViewSignIn from "../components/ui/modal-views/view-sign-in";
 
 import { useAuthModal } from "../store/use-auth-view";
+import ViewSingInRegisterRoot from "../components/ui/modal-views/view-sign-in-register/view-sing-in-register-root";
 
 const MainPage = () => {
   const { isOpenSign, closeSign, isOpenCart, closeCart } = useAuthModal();
@@ -16,7 +16,7 @@ const MainPage = () => {
       <MainRoot />
 
       <ModalViewRoot isOpen={isOpenSign} closeView={closeSign}>
-        <ViewSignIn />
+        <ViewSingInRegisterRoot />
       </ModalViewRoot>
 
       <ModalViewRoot isOpen={isOpenCart} closeView={closeCart}>
