@@ -11,12 +11,15 @@ const HeaderRoot = () => {
     >
       <nav className="flex justify-between px-8 pt-6 ">
         <HeaderList />
+
         <HeaderIcons />
       </nav>
 
       <div className="text-[#cccbcb] absolute top-[20%] left-[8%]">
         <p className="text-2xl pb-10">new arrival</p>
+
         <h1 className="text-7xl pb-10">ROADSTER X</h1>
+
         <p className="text-2xl  pb-10">Experience Speed and Style</p>
       </div>
     </div>

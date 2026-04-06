@@ -14,7 +14,6 @@ export interface bikesType {
 interface bikeStore {
   bikes: bikesType[];
   cart: bikesType[];
-  isLoading: boolean;
 
   addToCart: (id: string) => void;
   removeCart: (id: string) => void;
@@ -25,7 +24,6 @@ interface bikeStore {
 export const useBikeStore = create<bikeStore>((set) => ({
   bikes: copyState,
   cart: [],
-  isLoading: false,
 
   addToCart: (id) =>
     set((state) => {
