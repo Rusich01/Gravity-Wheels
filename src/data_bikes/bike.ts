@@ -1,12 +1,16 @@
-import type { bikesType } from "../store/use-bike-store";
+interface InitialType {
+  img: string;
+  title: string;
+  price: number;
+  id: string;
+}
 
-export const InitialState: bikesType[] = [
+export const InitialState: InitialType[] = [
   {
     img: "src/assets/img/bikes/bicycle01.png",
     title: "MTB",
     price: 1470,
     id: "01",
-    quantity: 0,
   },
 
   {
@@ -14,7 +18,6 @@ export const InitialState: bikesType[] = [
     title: "Gravel Bike",
     price: 1770,
     id: "02",
-    quantity: 0,
   },
 
   {
@@ -22,6 +25,5 @@ export const InitialState: bikesType[] = [
     title: "Retro Bike",
     price: 1260,
     id: "03",
-    quantity: 0,
   },
 ];
