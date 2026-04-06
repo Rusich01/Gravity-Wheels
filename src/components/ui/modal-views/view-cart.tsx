@@ -7,7 +7,9 @@ type ViewCartProps = { closeView: VoidFunction };
 const ViewCart = ({ closeView }: ViewCartProps) => {
   const { cart, removeCart, increment, decrement } = useBikeStore();
 
-  const totalPrice = cart.reduce((cart, acc) => cart + acc.price, 0);
+  const totalPrice = cart
+    .map((item) => item.price * item.quantity)
+    .reduce((item, acc) => item + acc, 0);
 
   return (
     <div className="w-full max-w-2xl p-6 rounded-2xl shadow-2xl text-white">
@@ -23,12 +25,12 @@ const ViewCart = ({ closeView }: ViewCartProps) => {
                 key={id}
                 className="flex items-center justify-between bg-gray-800  p-4 rounded-xl"
               >
-                <div>
-                  <p className="font-medium">{title}</p>
+                <div className="flex flex-col flex-1 w-30 overflow-hidden">
+                  <p className="font-medium ">{title}</p>
                   <p className="text-sm text-gray-400">${price}</p>
                 </div>
 
-                <div className=" flex flex-row items-center gap-2">
+                <div className=" flex flex-row items-center gap-2 flex-1  ">
                   <button
                     className="text-xs hover:text-green-600 cursor-pointer active:scale-85 duration-75"
                     onClick={() => decrement(id)}
@@ -48,7 +50,7 @@ const ViewCart = ({ closeView }: ViewCartProps) => {
 
                 <button
                   onClick={() => removeCart(id)}
-                  className="cursor-pointer hover:text-green-400 active:scale-95 duration-75"
+                  className="cursor-pointer hover:text-green-400 active:scale-95 duration-75 flex flex-0"
                 >
                   <GoTrash />
                 </button>

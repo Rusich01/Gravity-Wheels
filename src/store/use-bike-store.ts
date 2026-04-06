@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { InitialState } from "../data_bikes/bike";
 
+const copyState = JSON.parse(JSON.stringify(InitialState));
+
 export interface bikesType {
   img: string;
   title: string;
@@ -14,7 +16,6 @@ interface bikeStore {
   cart: bikesType[];
   isLoading: boolean;
 
-  // function
   addToCart: (id: string) => void;
   removeCart: (id: string) => void;
   increment: (id: string) => void;
@@ -22,7 +23,7 @@ interface bikeStore {
 }
 
 export const useBikeStore = create<bikeStore>((set) => ({
-  bikes: InitialState,
+  bikes: copyState,
   cart: [],
   isLoading: false,
 
@@ -34,10 +35,8 @@ export const useBikeStore = create<bikeStore>((set) => ({
 
       if (!bike || includeBike) return state;
 
-      return { cart: [...state.cart, bike] };
+      return { cart: [...state.cart, { ...bike, quantity: 1 }] };
     }),
-
-  //
 
   removeCart: (id) =>
     set((state) => {
@@ -46,16 +45,12 @@ export const useBikeStore = create<bikeStore>((set) => ({
       return { cart: newCart };
     }),
 
-  //
-
   increment: (id) =>
     set((state) => ({
       cart: state.cart.map((item) =>
         item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
       ),
     })),
-
-  //
 
   decrement: (id) =>
     set((state) => {
@@ -71,6 +66,4 @@ export const useBikeStore = create<bikeStore>((set) => ({
         ),
       };
     }),
-
-  //
 }));
