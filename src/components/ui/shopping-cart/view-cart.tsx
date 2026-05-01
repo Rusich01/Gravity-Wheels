@@ -58,8 +58,10 @@ const ViewCart = ({ closeView }: ViewCartProps) => {
             ))}
           </ul>
           <div className="my-6 border-t border-gray-700"></div>
+
           <div className="flex justify-between text-lg font-semibold mb-6">
             <span>Total</span>
+
             <span>${totalPrice}</span>
           </div>
         </>

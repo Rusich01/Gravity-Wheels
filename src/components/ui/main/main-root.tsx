@@ -1,4 +1,4 @@
-import BikesList from "./bikes-list";
+import BikesList from "./bike-lists/bikes-list";
 
 const MainRoot = () => {
   return (

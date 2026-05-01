@@ -1,5 +1,5 @@
-import { useBikeStore } from "../../../store/use-bike-store";
-import TitleH2 from "../../blocks/title-h2";
+import { useBikeStore } from "../../../../store/use-bike-store";
+import TitleH2 from "../../../common/title/title-h2";
 
 const BikesList = () => {
   const { bikes, addToCart } = useBikeStore();

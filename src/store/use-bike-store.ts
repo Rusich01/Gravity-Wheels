@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { InitialState } from "../data_bikes/bike";
+import { InitialState } from "../data/bike";
 
 const copyState = JSON.parse(JSON.stringify(InitialState));
 
