@@ -1,6 +1,6 @@
-import { useAuthModal } from "../../../../store/use-auth-view";
-import ViewRegister from "./view-register ";
-import ViewSignIn from "./view-sign-in";
+import { useAuthModal } from "../../../store/use-auth-view";
+import ViewRegister from "./register-form/view-register ";
+import ViewSignIn from "./sign-in-form/view-sign-in";
 
 const ViewSingInRegisterRoot = () => {
   const { activeTab, setActiveTab } = useAuthModal();

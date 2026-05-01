@@ -1,10 +1,10 @@
-import ModalViewRoot from "../components/ui/modal-views/modal-view-root";
+import ModalViewRoot from "../components/common/modal-view/modal-view";
 import HeaderRoot from "../components/ui/header/header-root";
 import MainRoot from "../components/ui/main/main-root";
-import ViewCart from "../components/ui/modal-views/view-cart";
+import ViewCart from "../components/ui/shopping-cart/view-cart";
+import ViewSingInRegisterRoot from "../components/ui/sin-in-registration/view-sing-in-register-root";
 
 import { useAuthModal } from "../store/use-auth-view";
-import ViewSingInRegisterRoot from "../components/ui/modal-views/view-sign-in-register/view-sing-in-register-root";
 
 const MainPage = () => {
   const { isOpenSign, closeSign, isOpenCart, closeCart } = useAuthModal();
