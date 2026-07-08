@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { InitialState } from "../data/bike";
+import { InitialState } from "@/data/bike";
 
 const copyState = JSON.parse(JSON.stringify(InitialState));
 
@@ -19,6 +19,7 @@ interface bikeStore {
   removeCart: (id: string) => void;
   increment: (id: string) => void;
   decrement: (id: string) => void;
+  clearCart: () => void;
 }
 
 export const useBikeStore = create<bikeStore>((set) => ({
@@ -64,4 +65,6 @@ export const useBikeStore = create<bikeStore>((set) => ({
         ),
       };
     }),
+
+  clearCart: () => set({ cart: [] }),
 }));
